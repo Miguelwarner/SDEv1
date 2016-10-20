@@ -1,0 +1,77 @@
+
+{% include top.html %}
+
+<body>
+{% include navbar.html %}
+<div class="container theme-showcase ">
+
+    <div class="col-sm-9">
+
+        {% if page.title %}
+        <div class="page-header">
+            <h1>{{ page.title }}</h1>
+        </div>
+        {% endif %}
+        <p class="text-right">
+
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            <small>
+            <em>
+            {% if page.author %}
+             Written by <a href="{{ site.url}}/team/{{ page.author}}">{{ page.author }} </a>
+            {% endif %}
+            {% if page.date %} on the {% assign d = page.date | date: "%-d"  %}
+            {{ page.date | date: "%B" }} 
+            {% case d %}
+              {% when '1' or '21' or '31' %}{{ d }}st
+              {% when '2' or '22' %}{{ d }}nd
+              {% when '3' or '23' %}{{ d }}rd
+              {% else %}{{ d }}th
+              {% endcase %},
+            {{ page.date | date: "%Y" }}
+            {% endif %}
+{% if page.updated_by %}
+             and Last updated by {{ page.updated_by }}
+            {% endif %}
+            {% if page.updated_at %} on the {% assign d = page.updated_at | date: "%-d"  %}
+            {{ page.updated_at | date: "%B" }} 
+            {% case d %}
+              {% when '1' or '21' or '31' %}{{ d }}st
+              {% when '2' or '22' %}{{ d }}nd
+              {% when '3' or '23' %}{{ d }}rd
+              {% else %}{{ d }}th
+              {% endcase %},
+            {{ page.updated_at | date: "%Y" }}
+            {% endif %}
+            </em>
+            </small>
+		&nbsp;
+            {% if page.tags %}
+		<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+            	<small>
+            	<em>
+             	{{ page.tags }}
+            {% endif %}
+            
+            </em>
+            </small>
+            </p>
+
+        {{ content }}
+
+<p class="text-right">
+
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            <small>
+            <em>
+            Edit me <a href="https://github.com/MyITCRM/myitcrm.github.com/edit/master/{{ page.relative_path }}">here. </a>
+            </em>
+            </small>
+    </div>
+	{% include right_sidebar_header.html %}
+		{% include module_wiki_toc.html %}
+		{% include module_donations.html %}
+	{% include right_sidebar_footer.html %}
+
+        </div>             
+{% include footer.html %}

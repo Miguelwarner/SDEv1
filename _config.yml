@@ -1,0 +1,35 @@
+#google_analytics_id:
+
+# standard jekyll configuration
+
+collections:
+  wiki:
+    output: true
+    # permalink: /wiki/:categories/:title
+  posts:
+    output: true
+    permalink: /:categories/:title
+
+permalink: /:title
+highlighter: pygments
+author: Glen Vanderhel
+
+exclude:
+#- bin
+#- config.rb
+- Gemfile
+- Gemfile.lock
+- gems
+#- Procfile
+#- Rakefile
+#- README.md
+#- script
+#- vendor
+
+markdown: redcarpet
+
+# Includes an icon in the footer for each user name you enter
+
+footer-links:
+  github: myitcrm
+  twitter: myitcrm
